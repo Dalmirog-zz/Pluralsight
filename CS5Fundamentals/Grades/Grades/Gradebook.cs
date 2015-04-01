@@ -7,14 +7,35 @@ namespace Grades
     {
         public Gradebook()
         {
-            
+            grades = new List<float>();
         }
 
         public void AddGrade(float grade)
         {
-            grades.Add(grade);
+            if (grade >= 0 && grade <= 100)
+            {
+                grades.Add(grade);
+            }
         }
 
-        List<float> grades = new List<float>();
+        internal GradeStatistics ComputeStatistics()
+        {
+            GradeStatistics stats = new GradeStatistics();
+            
+            float sum = 0f;
+
+            foreach(float grade in grades)
+            {
+                stats.HighestGrade = Math.Max(grade, stats.HighestGrade);
+                stats.LowestGrade = Math.Min(grade, stats.LowestGrade);
+                sum += grade;
+                
+            }
+
+            stats.AverageGrade = sum / grades.Count;
+            return stats;
+        }
+
+        private List<float> grades;
     }
 }
