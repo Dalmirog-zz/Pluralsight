@@ -8,20 +8,39 @@ namespace Grades
 {
     class Program
     {
+        static void GiveBookAName(Gradebook book)
+        {
+            book.Name = "The Gradebook";
+        }
+
+        static void IncrementNumber(int number)
+        {
+            number += 1;
+        }
+
         static void Main(string[] args)
         {
-            Gradebook book = new Gradebook();
-            book.AddGrade(91f);
-            book.AddGrade(89.1f);
-            book.AddGrade(75f);
+            Gradebook g1 = new Gradebook() ;
+            Gradebook g2 = g1;
 
-            GradeStatistics stats = book.ComputeStatistics();
+            GiveBookAName(g1);
 
-            Console.WriteLine(stats.AverageGrade);
-            Console.WriteLine(stats.LowestGrade);
-            Console.WriteLine(stats.HighestGrade);
+            Console.WriteLine(g2.Name);
 
+            int x1 = 4;
+            IncrementNumber(x1);
 
+            Console.WriteLine(x1);
+
+            //Gradebook book = new Gradebook();
+            //book.AddGrade(91f);
+            //book.AddGrade(89.1f);
+            //book.AddGrade(75f);
+
+            //GradeStatistics stats = book.ComputeStatistics();
+            //Console.WriteLine(stats.AverageGrade);
+            //Console.WriteLine(stats.LowestGrade);
+            //Console.WriteLine(stats.HighestGrade);
          }
     }
 }
