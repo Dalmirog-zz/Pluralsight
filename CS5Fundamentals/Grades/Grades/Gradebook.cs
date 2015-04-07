@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Grades
 {
-    class Gradebook
+    public class Gradebook
     {
         public Gradebook()
         {
@@ -18,7 +18,7 @@ namespace Grades
             }
         }
 
-        internal GradeStatistics ComputeStatistics()
+        public GradeStatistics ComputeStatistics()
         {
             GradeStatistics stats = new GradeStatistics();
             
