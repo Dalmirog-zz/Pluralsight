@@ -9,87 +9,53 @@ namespace Grades
 {
     class Program
     {
-        static void GiveBookAName(ref Gradebook book)
-        {
-            book.Name = "The Gradebook";
-        }
-
-        static void IncrementNumber(ref int number)
-        {
-            number += 1;
-        }
-
         static void Main(string[] args)
         {
-            SpeechSynthesizer synth = new SpeechSynthesizer();
 
-            synth.Speak("Hello World");
+            Gradebook book = new Gradebook();
+            book.AddGrade(91f);
+            book.AddGrade(89.1f);
+            book.AddGrade(75f);
 
-            //Arrays();
+            GradeStatistics stats = book.ComputeStatistics();
 
-            //Immutable();
+            WriteNames("Scott","Allen","Alex","Joy");
+            int number = 20;
+            WriteByte(number);
+            WriteByte(stats.AverageGrade);
 
-            //PassByValueAndRef();
-
-            //Gradebook book = new Gradebook();
-            //book.AddGrade(91f);
-            //book.AddGrade(89.1f);
-            //book.AddGrade(75f);
-
-            //GradeStatistics stats = book.ComputeStatistics();
-            //Console.WriteLine(stats.AverageGrade);
-            //Console.WriteLine(stats.LowestGrade);
-            //Console.WriteLine(stats.HighestGrade);
+            Console.WriteLine(stats.AverageGrade);
+            Console.WriteLine(stats.LowestGrade);
+            Console.WriteLine(stats.HighestGrade);
          }
 
-        private static void ArraySegment()
+        private static void WriteByte(int value)
         {
-            float[] grades ;
-            grades = new float[3];
+            byte[] bytes = BitConverter.GetBytes(value);
+            WriteByteArray(bytes);
+        }
 
-            AddGrades(grades);
+        private static void WriteByte(float value)
+        {
+            byte[] bytes = BitConverter.GetBytes(value);
+            WriteByteArray(bytes);
+        }
 
-            foreach (float grade in grades)
+        private static void WriteByteArray(byte[] bytes)
+        {
+            foreach (byte b in bytes)
             {
-                Console.WriteLine(grade);
+                Console.Write("0x{0:X2} ", b);
             }
-
+            Console.WriteLine();
         }
 
-        private static void AddGrades(float[] grades)
+        private static void WriteNames(params string[] names)
         {
-            if (grades.Length >= 3)
+            foreach (string name in names)
             {
-                grades[0] = 91f;
-                grades[1] = 89.1f;
-                grades[2] = 75f;
+                Console.WriteLine(name);
             }
-        }
-
-        private static void Immutable()
-        {
-            string name = " Scott ";
-            name = name.Trim();
-
-            DateTime date = new DateTime(2014, 1, 1);
-            date = date.AddHours(25);
-
-            Console.WriteLine(date);
-            Console.WriteLine(name);
-        }
-
-        private static void PassByValueAndRef()
-        {
-            Gradebook g1 = new Gradebook();
-            Gradebook g2 = g1;
-
-            GiveBookAName(ref g2);
-            Console.WriteLine(g2.Name);
-
-            int x1 = 10;
-            IncrementNumber(ref x1);
-
-            Console.WriteLine(x1);
         }
     }
 }
