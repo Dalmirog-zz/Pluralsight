@@ -12,18 +12,15 @@ namespace Grades
         static void Main(string[] args)
         {
 
-            Gradebook book = new Gradebook();
+            Gradebook book = new Gradebook("Dalmiro");
             book.AddGrade(91f);
             book.AddGrade(89.1f);
             book.AddGrade(75f);
 
             GradeStatistics stats = book.ComputeStatistics();
 
-            WriteNames("Scott","Allen","Alex","Joy");
-            int number = 20;
-            WriteByte(number);
-            WriteByte(stats.AverageGrade);
-
+            WriteNames(book.Name);
+            
             Console.WriteLine(stats.AverageGrade);
             Console.WriteLine(stats.LowestGrade);
             Console.WriteLine(stats.HighestGrade);
