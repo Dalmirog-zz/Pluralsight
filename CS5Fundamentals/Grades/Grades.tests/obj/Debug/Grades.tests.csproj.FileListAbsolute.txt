@@ -5,3 +5,4 @@ C:\GitHub\Pluralsight\CS5Fundamentals\Grades\Grades.tests\obj\Debug\Grades.tests
 C:\GitHub\Pluralsight\CS5Fundamentals\Grades\Grades.tests\obj\Debug\Grades.tests.pdb
 C:\GitHub\Pluralsight\CS5Fundamentals\Grades\Grades.tests\bin\Debug\Grades.exe
 C:\GitHub\Pluralsight\CS5Fundamentals\Grades\Grades.tests\bin\Debug\Grades.pdb
+C:\GitHub\Pluralsight\CS5Fundamentals\Grades\Grades.tests\bin\Debug\Grades.txt

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace Grades
 {
@@ -8,14 +9,14 @@ namespace Grades
         public Gradebook(string name = "There is no name")
         {
             Name = name;
-            grades = new List<float>();
+            _grades = new List<float>();
         }
 
         public void AddGrade(float grade)
         {
             if (grade >= 0 && grade <= 100)
             {
-                grades.Add(grade);
+                _grades.Add(grade);
             }
         }
 
@@ -25,7 +26,7 @@ namespace Grades
             
             float sum = 0f;
 
-            foreach(float grade in grades)
+            foreach(float grade in _grades)
             {
                 stats.HighestGrade = Math.Max(grade, stats.HighestGrade);
                 stats.LowestGrade = Math.Min(grade, stats.LowestGrade);
@@ -33,18 +34,58 @@ namespace Grades
                 
             }
 
-            stats.AverageGrade = sum / grades.Count;
+            stats.AverageGrade = sum / _grades.Count;
             return stats;
         }
 
-        //private string _name;
+        public void WriteGrades(TextWriter textWriter)
+        {
+            textWriter.WriteLine("Grades:");
+
+            int i = 0;
+            do
+            {
+                textWriter.WriteLine(_grades[i]);
+                i++;
+            } while (i< _grades.Count);
+            textWriter.WriteLine("*********");
+        }
+         
+        private string _name;
 
         public string Name
         {
-            get;
-            set;
+            get 
+            {
+                return _name;
+            }
+            set
+            {
+                if (String.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentException("Name cannot be null or empty");
+                }
+
+                if (_name != value)
+                {
+                    var oldValue = _name;
+                    _name = value;
+                    if (NameChanged != null)
+                    {
+                        NameChangedEventArgs args = new NameChangedEventArgs();
+                        args.OldValue = oldValue;
+                        args.NewValue = value;
+                        NameChanged(this, args);
+                    }
+                    
+                }
+            }
         }
 
-        private List<float> grades;
+        public event NameChangedDelegate NameChanged;
+
+        private List<float> _grades;
+
+
     }
 }

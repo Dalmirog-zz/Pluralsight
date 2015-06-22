@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Speech.Synthesis;
+using System.IO;
 
 namespace Grades
 {
@@ -11,48 +7,50 @@ namespace Grades
     {
         static void Main(string[] args)
         {
-
             Gradebook book = new Gradebook("Dalmiro");
-            book.AddGrade(91f);
-            book.AddGrade(89.1f);
-            book.AddGrade(75f);
-
-            GradeStatistics stats = book.ComputeStatistics();
-
-            WriteNames(book.Name);
+            try
+            {
+                using (FileStream stream = File.Open("grades.txt", FileMode.Open)) 
+                using(StreamReader reader = new StreamReader(stream))
+                {
+                    string line = reader.ReadLine();
+                    while (line != null)
+                    {
+                        float grade = float.Parse(line);
+                        book.AddGrade(grade);
+                        line = reader.ReadLine();
+                    }
+                }
+            }
+            catch(FileNotFoundException ex)
+            {
+                Console.WriteLine("Could not locate the file grades.txt");
+                return;
+            }
+            catch(UnauthorizedAccessException ex)
+            {
+                Console.WriteLine("No access");
+                return;
+            }
             
+            book.WriteGrades(Console.Out);
+
+            try
+            {
+                Console.WriteLine("Please enter a name for the book");
+                book.Name = Console.ReadLine();
+            }
+            catch (ArgumentException ex)
+            {
+                Console.WriteLine("Invalid Name");                
+            }
+            
+
+            GradeStatistics stats = book.ComputeStatistics();                        
             Console.WriteLine(stats.AverageGrade);
             Console.WriteLine(stats.LowestGrade);
             Console.WriteLine(stats.HighestGrade);
-         }
-
-        private static void WriteByte(int value)
-        {
-            byte[] bytes = BitConverter.GetBytes(value);
-            WriteByteArray(bytes);
-        }
-
-        private static void WriteByte(float value)
-        {
-            byte[] bytes = BitConverter.GetBytes(value);
-            WriteByteArray(bytes);
-        }
-
-        private static void WriteByteArray(byte[] bytes)
-        {
-            foreach (byte b in bytes)
-            {
-                Console.Write("0x{0:X2} ", b);
-            }
-            Console.WriteLine();
-        }
-
-        private static void WriteNames(params string[] names)
-        {
-            foreach (string name in names)
-            {
-                Console.WriteLine(name);
-            }
-        }
+            Console.WriteLine("{0} {1}", stats.LetterGrade, stats.Description);            
+         }        
     }
 }
