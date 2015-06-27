@@ -7,7 +7,7 @@ namespace Grades
     {
         static void Main(string[] args)
         {
-            ThrowAwayGradebook book = new ThrowAwayGradebook("Dalmiro");
+            Gradebook book = CreateGradeBook();
             try
             {
                 using (FileStream stream = File.Open("grades.txt", FileMode.Open)) 
@@ -50,6 +50,12 @@ namespace Grades
             Console.WriteLine(stats.LowestGrade);
             Console.WriteLine(stats.HighestGrade);
             Console.WriteLine("{0} {1}", stats.LetterGrade, stats.Description);            
-         }        
+         }
+
+        private static Gradebook CreateGradeBook()
+        {
+            Gradebook book = new ThrowAwayGradebook("Dalmiro");
+            return book;
+        }        
     }
 }
