@@ -11,7 +11,7 @@ namespace Grades
             try
             {
                 using (FileStream stream = File.Open("grades.txt", FileMode.Open)) 
-                using(StreamReader reader = new StreamReader(stream))
+                using (StreamReader reader = new StreamReader(stream))
                 {
                     string line = reader.ReadLine();
                     while (line != null)
