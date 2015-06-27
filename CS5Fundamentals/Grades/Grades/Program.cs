@@ -7,7 +7,7 @@ namespace Grades
     {
         static void Main(string[] args)
         {
-            Gradebook book = new Gradebook("Dalmiro");
+            ThrowAwayGradebook book = new ThrowAwayGradebook("Dalmiro");
             try
             {
                 using (FileStream stream = File.Open("grades.txt", FileMode.Open)) 
@@ -37,15 +37,14 @@ namespace Grades
 
             try
             {
-                Console.WriteLine("Please enter a name for the book");
-                book.Name = Console.ReadLine();
+                //Console.WriteLine("Please enter a name for the book");
+                //book.Name = Console.ReadLine();
             }
-            catch (ArgumentException ex)
+            catch (ArgumentException)
             {
                 Console.WriteLine("Invalid Name");                
             }
             
-
             GradeStatistics stats = book.ComputeStatistics();                        
             Console.WriteLine(stats.AverageGrade);
             Console.WriteLine(stats.LowestGrade);

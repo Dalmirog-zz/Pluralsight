@@ -8,6 +8,7 @@ namespace Grades
     {
         public Gradebook(string name = "There is no name")
         {
+            Console.WriteLine("Gradebook ctor");
             Name = name;
             _grades = new List<float>();
         }
@@ -22,6 +23,7 @@ namespace Grades
 
         public GradeStatistics ComputeStatistics()
         {
+            Console.WriteLine("Gradebook Compute");
             GradeStatistics stats = new GradeStatistics();
             
             float sum = 0f;
@@ -84,7 +86,7 @@ namespace Grades
 
         public event NameChangedDelegate NameChanged;
 
-        private List<float> _grades;
+        protected List<float> _grades;
 
 
     }
