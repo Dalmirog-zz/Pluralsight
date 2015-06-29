@@ -7,7 +7,8 @@ namespace Grades
     {
         static void Main(string[] args)
         {
-            Gradebook book = CreateGradeBook();
+            IGradeTracker book = CreateGradeBook();
+
             try
             {
                 using (FileStream stream = File.Open("grades.txt", FileMode.Open)) 
@@ -32,7 +33,8 @@ namespace Grades
                 Console.WriteLine("No access");
                 return;
             }
-            
+
+            book.DoSomething();
             book.WriteGrades(Console.Out);
 
             try
@@ -52,9 +54,9 @@ namespace Grades
             Console.WriteLine("{0} {1}", stats.LetterGrade, stats.Description);            
          }
 
-        private static Gradebook CreateGradeBook()
+        private static IGradeTracker CreateGradeBook()
         {
-            Gradebook book = new ThrowAwayGradebook("Dalmiro");
+            IGradeTracker book = new ThrowAwayGradebook("Dalmiro");
             return book;
         }        
     }

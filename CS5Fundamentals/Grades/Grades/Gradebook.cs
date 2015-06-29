@@ -4,7 +4,7 @@ using System.IO;
 
 namespace Grades
 {
-    public class Gradebook
+    public class Gradebook : GradeTracker
     {
         public Gradebook(string name = "There is no name")
         {
@@ -13,7 +13,12 @@ namespace Grades
             _grades = new List<float>();
         }
 
-        public void AddGrade(float grade)
+        public override void DoSomething()
+        {
+
+        }
+
+        public override void AddGrade(float grade)
         {
             if (grade >= 0 && grade <= 100)
             {
@@ -21,7 +26,7 @@ namespace Grades
             }
         }
 
-        public virtual GradeStatistics ComputeStatistics()
+        public override GradeStatistics ComputeStatistics()
         {
             Console.WriteLine("Gradebook Compute");
             GradeStatistics stats = new GradeStatistics();
@@ -40,7 +45,7 @@ namespace Grades
             return stats;
         }
 
-        public void WriteGrades(TextWriter textWriter)
+        public override void WriteGrades(TextWriter textWriter)
         {
             textWriter.WriteLine("Grades:");
 
@@ -51,43 +56,9 @@ namespace Grades
                 i++;
             } while (i< _grades.Count);
             textWriter.WriteLine("*********");
-        }
-         
-        private string _name;
-
-        public string Name
-        {
-            get 
-            {
-                return _name;
-            }
-            set
-            {
-                if (String.IsNullOrEmpty(value))
-                {
-                    throw new ArgumentException("Name cannot be null or empty");
-                }
-
-                if (_name != value)
-                {
-                    var oldValue = _name;
-                    _name = value;
-                    if (NameChanged != null)
-                    {
-                        NameChangedEventArgs args = new NameChangedEventArgs();
-                        args.OldValue = oldValue;
-                        args.NewValue = value;
-                        NameChanged(this, args);
-                    }
-                    
-                }
-            }
-        }
-
-        public event NameChangedDelegate NameChanged;
+        }    
 
         protected List<float> _grades;
-
 
     }
 }
