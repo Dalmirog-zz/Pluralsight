@@ -14,11 +14,6 @@ namespace Grades
             Console.WriteLine("Throwaway ctor");
         }
 
-        public override void DoSomething()
-        {
-            
-        }
-
         public override GradeStatistics ComputeStatistics()
         {
             Console.WriteLine("ThrowAway Comput");

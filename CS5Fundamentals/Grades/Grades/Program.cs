@@ -34,8 +34,10 @@ namespace Grades
                 return;
             }
 
-            book.DoSomething();
-            book.WriteGrades(Console.Out);
+            foreach (float grade in book)
+            {
+                Console.WriteLine(grade);
+            }
 
             try
             {
