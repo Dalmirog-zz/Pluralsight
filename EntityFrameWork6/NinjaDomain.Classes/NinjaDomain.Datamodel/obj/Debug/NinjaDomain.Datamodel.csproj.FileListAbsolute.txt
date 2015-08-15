@@ -1,0 +1,12 @@
+C:\GitHub\Pluralsight\EntityFrameWork6\NinjaDomain.Classes\NinjaDomain.Datamodel\obj\Debug\NinjaDomain.Datamodel.csprojResolveAssemblyReference.cache
+C:\GitHub\Pluralsight\EntityFrameWork6\NinjaDomain.Classes\NinjaDomain.Datamodel\bin\Debug\NinjaDomain.Datamodel.dll.config
+C:\GitHub\Pluralsight\EntityFrameWork6\NinjaDomain.Classes\NinjaDomain.Datamodel\bin\Debug\NinjaDomain.Datamodel.dll
+C:\GitHub\Pluralsight\EntityFrameWork6\NinjaDomain.Classes\NinjaDomain.Datamodel\bin\Debug\NinjaDomain.Datamodel.pdb
+C:\GitHub\Pluralsight\EntityFrameWork6\NinjaDomain.Classes\NinjaDomain.Datamodel\bin\Debug\EntityFramework.dll
+C:\GitHub\Pluralsight\EntityFrameWork6\NinjaDomain.Classes\NinjaDomain.Datamodel\bin\Debug\EntityFramework.SqlServer.dll
+C:\GitHub\Pluralsight\EntityFrameWork6\NinjaDomain.Classes\NinjaDomain.Datamodel\bin\Debug\NinjaDomain.Classes.dll
+C:\GitHub\Pluralsight\EntityFrameWork6\NinjaDomain.Classes\NinjaDomain.Datamodel\bin\Debug\NinjaDomain.Classes.pdb
+C:\GitHub\Pluralsight\EntityFrameWork6\NinjaDomain.Classes\NinjaDomain.Datamodel\bin\Debug\EntityFramework.xml
+C:\GitHub\Pluralsight\EntityFrameWork6\NinjaDomain.Classes\NinjaDomain.Datamodel\bin\Debug\EntityFramework.SqlServer.xml
+C:\GitHub\Pluralsight\EntityFrameWork6\NinjaDomain.Classes\NinjaDomain.Datamodel\obj\Debug\NinjaDomain.Datamodel.dll
+C:\GitHub\Pluralsight\EntityFrameWork6\NinjaDomain.Classes\NinjaDomain.Datamodel\obj\Debug\NinjaDomain.Datamodel.pdb
