@@ -7,5 +7,6 @@ namespace NinjaDomain.Classes
 {
     public class EquipmentType
     {
+        int Type { get; set; }
     }
 }

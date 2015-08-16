@@ -46,6 +46,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\201508150336535_Initial.cs" />
+    <Compile Include="Migrations\201508150336535_Initial.Designer.cs">
+      <DependentUpon>201508150336535_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201508150340370_AddedDateOfBirth.cs" />
+    <Compile Include="Migrations\201508150340370_AddedDateOfBirth.Designer.cs">
+      <DependentUpon>201508150340370_AddedDateOfBirth.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="NinjaContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -58,6 +67,14 @@
       <Project>{8186e6ad-c75c-43ac-b5ab-90b739d75c0f}</Project>
       <Name>NinjaDomain.Classes</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201508150336535_Initial.resx">
+      <DependentUpon>201508150336535_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201508150340370_AddedDateOfBirth.resx">
+      <DependentUpon>201508150340370_AddedDateOfBirth.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

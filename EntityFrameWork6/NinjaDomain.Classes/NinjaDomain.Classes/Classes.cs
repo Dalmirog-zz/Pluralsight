@@ -16,6 +16,7 @@ namespace NinjaDomain.Classes
         public Clan Clan { get; set; }
         public int ClanID { get; set; }
         public List<NinjaEquipment> EquipmentOwned { get; set; }
+        public System.DateTime DateOfBirth { get; set; }
     }
 
     public class Clan
@@ -29,7 +30,7 @@ namespace NinjaDomain.Classes
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public EquipmentType Type { get; set; }
+        public int Type { get; set; }
         [Required]
         public Ninja Ninja { get; set; }
     }

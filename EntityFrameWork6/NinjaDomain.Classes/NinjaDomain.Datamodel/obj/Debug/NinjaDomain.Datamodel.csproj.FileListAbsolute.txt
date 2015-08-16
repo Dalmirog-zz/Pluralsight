@@ -10,3 +10,6 @@ C:\GitHub\Pluralsight\EntityFrameWork6\NinjaDomain.Classes\NinjaDomain.Datamodel
 C:\GitHub\Pluralsight\EntityFrameWork6\NinjaDomain.Classes\NinjaDomain.Datamodel\bin\Debug\EntityFramework.SqlServer.xml
 C:\GitHub\Pluralsight\EntityFrameWork6\NinjaDomain.Classes\NinjaDomain.Datamodel\obj\Debug\NinjaDomain.Datamodel.dll
 C:\GitHub\Pluralsight\EntityFrameWork6\NinjaDomain.Classes\NinjaDomain.Datamodel\obj\Debug\NinjaDomain.Datamodel.pdb
+C:\GitHub\Pluralsight\EntityFrameWork6\NinjaDomain.Classes\NinjaDomain.Datamodel\obj\Debug\NinjaDomain.Datamodel.Migrations.Initial.resources
+C:\GitHub\Pluralsight\EntityFrameWork6\NinjaDomain.Classes\NinjaDomain.Datamodel\obj\Debug\NinjaDomain.Datamodel.csproj.GenerateResource.Cache
+C:\GitHub\Pluralsight\EntityFrameWork6\NinjaDomain.Classes\NinjaDomain.Datamodel\obj\Debug\NinjaDomain.Datamodel.Migrations.AddedDateOfBirth.resources
