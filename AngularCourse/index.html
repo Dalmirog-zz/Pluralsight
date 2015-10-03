@@ -1,12 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
-<script src="Scripts/Angular.js"></script>
-<script src="Scripts/script.js"></script>
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body ng-app>
-
-</body>
+<html lang="en" ng-app="githubViewer">
+    <script src="Scripts/Angular.js"></script>
+    <script src="Scripts/script.js"></script>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+    <body ng-controller="MainController">
+        <h1>{{message}}</h1>
+        <div>
+            <div>First name: {{person.firstname}}</div>
+            <div>Lastname: {{person.lastname}}</div>
+            <div>
+                <img ng-src="{{person.imageSrc}}" title="{{person.firstname}} {{person.lastname}}">
+            </div>
+        </div>
+    </body>
 </html>

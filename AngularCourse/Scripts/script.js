@@ -1,34 +1,19 @@
-/**
- * Created by dalmi on 10/3/2015.
- */
-//This is an IIFE (immediatelly invoked function expression)
 (function(){
 
-    var createWorker = function(){
+    var app = angular.module("githubViewer", []);
 
-        var workCount = 0;
+    var MainController = function($scope){
 
-        var task1 = function(){
-            workCount +=1;
-            console.log("task1 " + workCount);
+        var person = {
+            firstname: "Shanks",
+            lastname: "RedHair",
+            imageSrc: "http://img2.wikia.nocookie.net/__cb20130408191853/onepiece/images/6/66/Shanks_Anime_Infobox.png"
         };
 
-        var task2 = function(){
-            workCount +=1
-            console.log("task2 "+ workCount);
-        };
-
-        return{
-            job1: task1,
-            job2: task2
-        };
+        $scope.message = "Hello, Captain";
+        $scope.person = person;
     };
 
-    var worker = createWorker();
+    app.controller("MainController", MainController);
 
-    worker.job1();
-    worker.job2();
-    worker.job2();
-    worker.job2();
 }());
-
