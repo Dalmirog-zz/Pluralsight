@@ -11,8 +11,10 @@
             $scope.error = "Could not fetch the user"
         };
 
-        $http.get("https://api.github.com/users/Dalmirog")
-            .then(onUserComplete, onError);
+        $scope.search = function(username){
+            $http.get("https://api.github.com/users/" + username)
+                .then(onUserComplete, onError);
+        }
 
         $scope.usernname = "angular";
         $scope.message = "Github viewer";
