@@ -11,7 +11,6 @@
             $scope.error = "Could not fetch the user"
         };
 
-
         $http.get("https://api.github.com/users/Dalmirog")
             .then(onUserComplete, onError);
 
@@ -19,6 +18,6 @@
 
     };
 
-    app.controller("MainController", MainController);
+    app.controller("MainController", [MainController]);
 
 }());
