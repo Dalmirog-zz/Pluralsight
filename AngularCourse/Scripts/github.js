@@ -13,9 +13,9 @@
         };
 
         var getRepos = function(user){
-            $http.get(user.repos_url)
+            return $http.get(user.repos_url)
                 .then(function(response){
-                   return response.data
+                   return response.data;
                 });
         };
 
