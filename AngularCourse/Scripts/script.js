@@ -2,16 +2,21 @@
 
     var app = angular.module("githubViewer", []);
 
-    var MainController = function($scope){
+    var MainController = function($scope, $http){
 
-        var person = {
-            firstname: "Shanks",
-            lastname: "RedHair",
-            imageSrc: "http://img2.wikia.nocookie.net/__cb20130408191853/onepiece/images/6/66/Shanks_Anime_Infobox.png"
+        var onUserComplete = function(response){
+          $scope.user = response.data;
+        };
+        var onError = function(reason){
+            $scope.error = "Could not fetch the user"
         };
 
-        $scope.message = "Hello, Captain";
-        $scope.person = person;
+
+        $http.get("https://api.github.com/users/Dalmirog")
+            .then(onUserComplete, onError);
+
+        $scope.message = "Hello, User";
+
     };
 
     app.controller("MainController", MainController);

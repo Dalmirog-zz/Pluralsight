@@ -8,11 +8,20 @@
     </head>
     <body ng-controller="MainController">
         <h1>{{message}}</h1>
+
         <div>
-            <div>First name: {{person.firstname}}</div>
-            <div>Lastname: {{person.lastname}}</div>
+            {{error}}
+        </div>
+
+        <div>
             <div>
-                <img ng-src="{{person.imageSrc}}" title="{{person.firstname}} {{person.lastname}}">
+                Name: {{user.name}}
+            </div>
+            <div>
+                Location: {{user.location}}
+            </div>
+            <div>
+                <img ng-src="{{user.avatar_url}}" title="{{user.name}}">
             </div>
         </div>
     </body>
