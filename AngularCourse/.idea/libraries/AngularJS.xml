@@ -6,7 +6,7 @@
       </sourceFilesUrls>
     </properties>
     <CLASSES>
-      <root url="file://$PROJECT_DIR$/Scripts/Angular.js" />
+      <root url="file://$PROJECT_DIR$/Scripts/angular.js" />
     </CLASSES>
     <SOURCES />
   </library>

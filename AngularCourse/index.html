@@ -1,23 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="githubViewer">
-    <script src="Scripts/Angular.js"></script>
-    <script src="Scripts/script.js"></script>
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-route.js"></script>
+    <script src="Scripts/app.js"></script>
+    <script src="Scripts/MainController.js"></script>
     <script src="Scripts/github.js"></script>
     <head>
         <meta charset="UTF-8">
         <title></title>
     </head>
-    <body ng-controller="MainController">
-        <h1>{{message}}</h1>
 
-        <div>{{error}}</div>
-        {{countdown}}
-        <form name="searchUser" ng-submit="search(username)">
-            <input type="search" required placeholder="Username to find" ng-model="username"/>
-            <input type="submit" placeholder="Search">
-        </form>
-
-        <div ng-include="'userdetails.html'" ng-show="user"></div>
-
+    <body>
+        <h1>Github Viewer</h1>
+        <div ng-view></div>
     </body>
+
 </html>

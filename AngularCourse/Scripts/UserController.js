@@ -1,14 +1,14 @@
 (function(){
 
-    var app = angular.module("githubViewer", []);
+    var app = angular.module("githubViewer");
 
     var MainController = function(
         $scope, github, $interval,
         $log, $anchorScroll,$location){
 
         var onUserComplete = function(data){
-          $scope.user = data;
-          github.getRepos($scope.user).then(onRepos, onError);
+            $scope.user = data;
+            github.getRepos($scope.user).then(onRepos, onError);
         };
 
         var onRepos = function(data){
@@ -52,4 +52,6 @@
 
     app.controller("MainController", MainController);
 
-}());
+}());/**
+ * Created by dalmi on 10/4/2015.
+ */
