@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Http;
 using Microsoft.Framework.DependencyInjection;
+using TheWorld.Services;
 
 namespace TheWorld
 {
@@ -14,6 +15,11 @@ namespace TheWorld
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+#if DEBUG
+            services.AddScoped<IMailService, DebugMailService>();
+#else
+            services.AddScoped<IMailService, RealMailService>();
+#endif
         }
 
         public void Configure(IApplicationBuilder app)

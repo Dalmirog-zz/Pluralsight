@@ -3,11 +3,20 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TheWorld.Services;
+using TheWorld.ViewModels;
 
 namespace TheWorld.Controllers.Web
 {
     public class AppController : Controller
     {
+        private IMailService _mailService;
+
+        public AppController(IMailService service)//what is constructor injection / dependency injection?
+        {
+            _mailService = service;
+        }
+
         public IActionResult Index()
         {
             return View();
@@ -20,6 +29,15 @@ namespace TheWorld.Controllers.Web
 
         public IActionResult Contact()
         {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Contact(ContactViewModel model)
+        {
+            _mailService.SendMail("", "", $"Contact page from {model.Name} ({model.Email}),",
+                model.Message);
+
             return View();
         }
     }
