@@ -8,6 +8,7 @@ using Microsoft.Framework.Configuration;
 using Microsoft.Framework.DependencyInjection;
 using TheWorld.Services;
 using Microsoft.Dnx.Runtime;
+using TheWorld.Models;
 
 namespace TheWorld
 {
@@ -28,6 +29,10 @@ namespace TheWorld
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+            services.AddEntityFramework()
+                .AddSqlServer()
+                .AddDbContext<WorldContext>();
 #if DEBUG
             services.AddScoped<IMailService, DebugMailService>();
 #else

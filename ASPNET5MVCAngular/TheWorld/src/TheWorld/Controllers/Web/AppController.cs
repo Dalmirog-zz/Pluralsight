@@ -1,8 +1,6 @@
 ﻿using Microsoft.AspNet.Mvc;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+using TheWorld.Models;
 using TheWorld.Services;
 using TheWorld.ViewModels;
 
@@ -12,14 +10,17 @@ namespace TheWorld.Controllers.Web
     {
 
         private IMailService _mailService;
+        private WorldContext _context;
 
-        public AppController(IMailService service)//what is constructor injection / dependency injection?
+        public AppController(IMailService service, WorldContext context)//what is constructor injection / dependency injection?
         {
             _mailService = service;
+            _context = context;
         }
 
         public IActionResult Index()
         {
+            var trips = _context.Trips.OrderBy(t => t.Name).ToList();
             return View();
         }
 
