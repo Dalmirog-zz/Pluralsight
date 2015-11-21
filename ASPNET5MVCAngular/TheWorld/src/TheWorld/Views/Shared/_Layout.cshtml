@@ -4,7 +4,8 @@
 <head>
     <title>The World - @ViewBag.Title</title>
     <meta charset="utf-8" />
-
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="~/lib/Font-Awesome/css/font-awesome.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
@@ -14,13 +15,15 @@
         <ul class="menu">
             <li class="active"><a asp-controller="App" asp-action="Index">Home</a></li>
             <li><a asp-controller="App" asp-action="About">About</a></li>
-            <li><a asp-controller="App" asp-action="Contact">Contanct</a></li>
+            <li><a asp-controller="App" asp-action="Contact">Contact</a></li>
         </ul>
     </div>
     <div id="wrapper">
         <div id="main">
             <div>
-                <button id="sidebarToggle">Toggle Menu</button>
+                <button id="sidebarToggle" class="btn btn-primary">
+                    <i class="fa fa-angle-left"></i>
+                </button>
             </div>
             <div>
                 @RenderBody()
@@ -28,11 +31,12 @@
 
         </div>
         <div id="footer">
-            &copy; 2015 The World Ltd.
+            <p class="text-primary">&copy; 2015 The World Ltd. </p>
         </div>
     </div>
 
     <script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="~/js/site.js"></script>
 
     @RenderSection("Scripts",false)
