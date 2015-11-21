@@ -10,6 +10,7 @@ namespace TheWorld.Controllers.Web
 {
     public class AppController : Controller
     {
+
         private IMailService _mailService;
 
         public AppController(IMailService service)//what is constructor injection / dependency injection?
@@ -35,8 +36,24 @@ namespace TheWorld.Controllers.Web
         [HttpPost]
         public IActionResult Contact(ContactViewModel model)
         {
-            _mailService.SendMail("", "", $"Contact page from {model.Name} ({model.Email}),",
-                model.Message);
+
+            if (ModelState.IsValid)
+            {
+                var email = Startup.Configuration["AppSettings:SiteEmailAddress"];
+
+                if (string.IsNullOrWhiteSpace(email))
+                {
+                    ModelState.AddModelError("", "Could not send email, configuration problem.");
+                }
+
+                if(_mailService.SendMail(email, email, $"Contact page from {model.Name} ({model.Email}),",model.Message))
+                {
+                    ModelState.Clear();
+
+                    ViewBag.Message = "Mail Sent. Thanks!";
+
+                }
+            }
 
             return View();
         }
