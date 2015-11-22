@@ -21,7 +21,7 @@ namespace TheWorld.Controllers.Web
         public IActionResult Index()
         {
             var trips = _context.Trips.OrderBy(t => t.Name).ToList();
-            return View();
+            return View(trips);
         }
 
         public IActionResult About()
