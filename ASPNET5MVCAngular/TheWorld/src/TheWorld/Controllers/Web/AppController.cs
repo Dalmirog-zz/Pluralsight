@@ -10,17 +10,17 @@ namespace TheWorld.Controllers.Web
     {
 
         private IMailService _mailService;
-        private WorldContext _context;
+        private IWorldRepository _repository;
 
-        public AppController(IMailService service, WorldContext context)//what is constructor injection / dependency injection?
+        public AppController(IMailService service, IWorldRepository repository)//what is constructor injection / dependency injection?
         {
             _mailService = service;
-            _context = context;
+            _repository = repository;
         }
 
         public IActionResult Index()
         {
-            var trips = _context.Trips.OrderBy(t => t.Name).ToList();
+            var trips = _repository.GetAllTrips();
             return View(trips);
         }
 

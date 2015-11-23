@@ -35,6 +35,7 @@ namespace TheWorld
                 .AddDbContext<WorldContext>();
 
             services.AddTransient<WorldContextSeedData>();
+            services.AddScoped<IWorldRepository, WorldRepository>();
 #if DEBUG
             services.AddScoped<IMailService, DebugMailService>();
 #else
