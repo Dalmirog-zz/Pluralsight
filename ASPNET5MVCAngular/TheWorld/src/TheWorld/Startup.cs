@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNet.Builder;
-using Microsoft.AspNet.Http;
+﻿using Microsoft.AspNet.Builder;
 using Microsoft.Framework.Configuration;
 using Microsoft.Framework.DependencyInjection;
 using TheWorld.Services;
 using Microsoft.Dnx.Runtime;
 using TheWorld.Models;
+using Microsoft.Framework.Logging;
 
 namespace TheWorld
 {
@@ -30,6 +26,8 @@ namespace TheWorld
         {
             services.AddMvc();
 
+            services.AddLogging();
+
             services.AddEntityFramework()
                 .AddSqlServer()
                 .AddDbContext<WorldContext>();
@@ -43,8 +41,10 @@ namespace TheWorld
 #endif
         }
 
-        public void Configure(IApplicationBuilder app, WorldContextSeedData seeder)
+        public void Configure(IApplicationBuilder app, WorldContextSeedData seeder, ILoggerFactory loggerFactory)
         {
+            loggerFactory.AddDebug(LogLevel.Information);
+
             app.UseStaticFiles();
 
             app.UseMvc(config =>
