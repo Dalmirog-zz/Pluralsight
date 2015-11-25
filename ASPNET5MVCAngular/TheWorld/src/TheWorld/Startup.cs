@@ -6,6 +6,8 @@ using Microsoft.Dnx.Runtime;
 using TheWorld.Models;
 using Microsoft.Framework.Logging;
 using Newtonsoft.Json.Serialization;
+using AutoMapper;
+using TheWorld.ViewModels;
 
 namespace TheWorld
 {
@@ -51,6 +53,11 @@ namespace TheWorld
             loggerFactory.AddDebug(LogLevel.Information);
 
             app.UseStaticFiles();
+
+            Mapper.Initialize(config =>
+            {
+                config.CreateMap<Trip, TripViewModel>().ReverseMap();
+            });
 
             app.UseMvc(config =>
             {
