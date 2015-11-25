@@ -7,20 +7,27 @@ using TheWorld.Models;
 
 namespace TheWorld.Controllers.Api
 {
-    public class TrioController : Controller
+    [Route("api/trips")]
+    public class TripController : Controller
     {
         private IWorldRepository _repository;
 
-        public TrioController(IWorldRepository repository)
+        public TripController(IWorldRepository repository)
         {
             _repository = repository;
         }
 
-        [HttpGet("api/trips")]
+        [HttpGet("")]
         public JsonResult Get()
         {
             var results = _repository.GetAllTripsWithStops();
             return Json(results);
+        }
+
+        [HttpPost("")]
+        public JsonResult Post([FromBody]Trip newTrip)
+        {
+            return Json(true);
         }
     }
 }
