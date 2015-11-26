@@ -40,6 +40,12 @@ namespace TheWorld.Controllers.Api
 
                     // Save to the Database
                     _logger.LogInformation("Atempting to save a new trip");
+                    _repository.AddTrip(newTrip);
+                    if (_repository.SaveAll())
+                    {
+                        Response.StatusCode = (int)HttpStatusCode.Created;
+                        return Json(Mapper.Map<TripViewModel>(newTrip));
+                    }
 
                     Response.StatusCode = (int)HttpStatusCode.Created;
                     return Json(Mapper.Map<TripViewModel>(newTrip));
