@@ -33,6 +33,13 @@ namespace TheWorld.Models
                 .ToList();
         }
 
+        public Trip GetTripByName(string tripName)
+        {
+            return _context.Trips.Include(t => t.Stops)
+                    .Where(t => t.Name == "World Tour")
+                    .FirstOrDefault();
+        }
+
         public bool SaveAll()
         {
             return _context.SaveChanges() > 0; //if changes gt 0
