@@ -47,7 +47,7 @@ namespace TheWorld.Controllers.Api
             }
         }
 
-        public JsonResult Post(string tripName, [FromBody]StopViewModel vm )
+        public async Task<JsonResult> Post(string tripName, [FromBody]StopViewModel vm )
         {
             tripName = WebUtility.UrlDecode(tripName);
 
@@ -59,9 +59,9 @@ namespace TheWorld.Controllers.Api
                     var newStop = Mapper.Map<Stop>(vm);
 
                     // Looking up Geocoordinates
-                    var coordResult = _coordService.Lookup(newStop.Name);
+                    var coordResult = await _coordService.Lookup(newStop.Name);
 
-                    if (!coordResult.Sucess)
+                    if (!coordResult.Success)
                     {
                         Response.StatusCode = (int)HttpStatusCode.BadRequest;
                         return Json(coordResult.Message);
