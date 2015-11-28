@@ -28,13 +28,13 @@ namespace TheWorld.Controllers.Api
         {
             try
             {
-                var results = _repository.GetTripByName(tripName);
+                var results = _repository.GetTripByName(WebUtility.UrlDecode(tripName));
                 if (results == null)
                 {
                     return Json(null);
                 }
 
-                return Json(Mapper.Map<IEnumerable<StopViewModel>>(results.Stops));
+                return Json(Mapper.Map<IEnumerable<StopViewModel>>(results.Stops.OrderBy(s => s.Order)));
             }
             catch (Exception ex)
             {
