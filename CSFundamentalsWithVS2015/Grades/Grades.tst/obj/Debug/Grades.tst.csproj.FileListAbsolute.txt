@@ -1,0 +1,8 @@
+C:\Github\Pluralsight\CSFundamentalsWithVS2015\Grades\Grades.tst\obj\Debug\Grades.tst.csprojResolveAssemblyReference.cache
+C:\Github\Pluralsight\CSFundamentalsWithVS2015\Grades\Grades.tst\bin\Debug\Grades.tst.dll
+C:\Github\Pluralsight\CSFundamentalsWithVS2015\Grades\Grades.tst\bin\Debug\Grades.tst.pdb
+C:\Github\Pluralsight\CSFundamentalsWithVS2015\Grades\Grades.tst\bin\Debug\Grades.exe
+C:\Github\Pluralsight\CSFundamentalsWithVS2015\Grades\Grades.tst\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Github\Pluralsight\CSFundamentalsWithVS2015\Grades\Grades.tst\bin\Debug\Grades.pdb
+C:\Github\Pluralsight\CSFundamentalsWithVS2015\Grades\Grades.tst\obj\Debug\Grades.tst.dll
+C:\Github\Pluralsight\CSFundamentalsWithVS2015\Grades\Grades.tst\obj\Debug\Grades.tst.pdb
