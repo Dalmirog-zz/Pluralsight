@@ -1,8 +1,0 @@
-﻿{
-    "AppSettings": {
-        "SiteEmailAddress": "me@aol.com"
-    },
-    "Data": {
-        "WorldContectConnection": "Server=(localdb)\\ProjectsV12;Database=TheWorldDB;Trusted_Connection=true;MultipleActiveResultSets=true" //here goes the connection string
-    }
-}
